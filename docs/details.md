@@ -55,7 +55,7 @@ For calibration, we used a 100 mm by 100 mm Checkerboard pattern with squares of
 
 Checkerboard Image:
 
-![Checkerboard Calibration](../media/cameraCalibration/checkerboard.png)
+![Checkerboard Calibration](../media/cameraCalibration/checkboard.png)
 
 #### Image Acquisition
 
@@ -64,25 +64,25 @@ To perform a robust calibration, images of the Checkerboard were captured from d
 Images of distorted images (4 images side by side)
 
 <p float="left">
-  <img src="../media/captured_images/image1.jpg" width="25%" />
-  <img src="../media/captured_images/image1.jpg" width="25%" />
-  <img src="../media/captured_images/image1.jpg" width="25%" />
-  <img src="../media/captured_images/image1.jpg" width="25%" />
+  <img src="../media/captured_images/images1.jpg" width="25%" />
+  <img src="../media/captured_images/images2.jpg" width="25%" />
+  <img src="../media/captured_images/images3.jpg" width="25%" />
+  <img src="../media/captured_images/images4.jpg" width="25%" />
 </p>
 
 
 images of undistorted images (4 images side by side)
 
 <p float="left">
-  <img src="media/undistorted_images/image1.jpg" width="25%" />
-  <img src="media/undistorted_images/image1.jpg" width="25%" />
-  <img src="media/undistorted_images/image1.jpg" width="25%" />
-  <img src="media/undistorted_images/image1.jpg" width="25%" />
+  <img src="../media/undistorted_images/1.png" width="25%" />
+  <img src="../media/undistorted_images/2.png" width="25%" />
+  <img src="../media/undistorted_images/3.png" width="25%" />
+  <img src="../media/undistorted_images/4.png" width="25%" />
 </p>
 
 #### Camera Calibration Process
 
-The camera calibration process was implemented using algorithms developed with guidance from the official OpenCV documentation [13] and supplemented by a comprehensive YouTube tutorial [14].
+The camera calibration process was implemented using algorithms developed with guidance from the official OpenCV documentation and supplemented by a comprehensive YouTube tutorial.
 
 - Intrinsic Matrix (K):
 
@@ -128,7 +128,7 @@ To generate markers online:
 
 #### Image of aruco marker 6by6_100 id 13
 
-![ArUco Marker](Scientific_project/media/arucoMarker/6x6_1000-13.png)
+![ArUco Marker](../media/arucoMarker/6x6_1000-13.png)
 
 #### Detection of ArUco Markers
 
@@ -161,9 +161,9 @@ here are detecting of aruco marker visuals
 3 images side by side.
 
 <p float="left">
-  <img src="media/arucoMarkerDetection/frame1.png" width="33%" />
-  <img src="media/arucoMarkerDetection/frame2.png" width="33%" />
-  <img src="media/arucoMarkerDetection/frame3.png" width="33%" />
+  <img src="../media/arucoMarkerDetection/frame1.png" width="33%" />
+  <img src="../media/arucoMarkerDetection/frame2.png" width="33%" />
+  <img src="../media/arucoMarkerDetection/frame3.png" width="33%" />
 </p>
 
 3. **Distance Estimation:** Calculates the distance of markers using pose estimation.
@@ -209,9 +209,9 @@ The following images show the distance from the camera’s center to one, two, a
 3 images side by side showing distance of one, two and 3 aruco markers:
 
 <p float="left">
-  <img src="media/depthEstimation/three_aruco/one_ArUco Marker Distance Measurement1.png" width="33%" />
-  <img src="media/depthEstimation/three_aruco/two_ArUco Marker Distance Measurement2.png" width="33%" />
-  <img src="media/depthEstimation/three_aruco/three_ArUco Marker Distance Measurement3.png" width="33%" />
+  <img src="../media/depthEstimation/three_aruco/one_ArUco Marker Distance Measurement1.png" width="33%" />
+  <img src="../media/depthEstimation/three_aruco/two_ArUco Marker Distance Measurement2.png" width="33%" />
+  <img src="../media/depthEstimation/three_aruco/three_ArUco Marker Distance Measurement3.png" width="33%" />
 </p>
 
 #### Evaluation of Distance Calculation Algorithm
@@ -226,7 +226,7 @@ To assess the accuracy of the distance calculation algorithm, the following metr
 
 image of plot :
 
-![Distance_evaluation](media/depthEstimatio/distance_comparison_plot.png)
+![Distance_evaluation](../media/depthEstimatio/distance_comparison_plot.png)
 
 - Graphical Analysis
 
@@ -329,7 +329,7 @@ Once the marker is detected again, the robot resumes its normal operation, using
 - **Testing Scenarios:** Conducted under diverse conditions, demonstrating the system’s robustness.
 - **Accuracy:** Achieved an average error of less than 2 cm in distance estimation.
 - **Reliability:** Performed consistently across different lighting and surface conditions.
-- **Testing Video:** [Watch Testing Video](media/final_testing_video.mp4)
+- **Testing Video:** [Watch Testing Video](../media/final_testing_video.mp4)
 
 ---
 
