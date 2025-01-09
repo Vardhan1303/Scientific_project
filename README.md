@@ -55,7 +55,7 @@ Platooning_Autonomous_Following_Robot/
 ## 🛠️ Setup Instructions
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<your-username>/Scientific_project.git
+   git clone https://github.com/Vardhan1303/Scientific_project.git
    ```
 2. Follow the setup guide in the `docs/` folder to configure your Raspberry Pi and install necessary dependencies.
 
