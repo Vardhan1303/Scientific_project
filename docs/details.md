@@ -14,7 +14,7 @@ The **Platooning Autonomous Following Robot** is designed to autonomously follow
 ---
 
 ## Key Technologies and Components
-- **ArUco Markers:** Used for visual positioning and tracking. ![ArUco Marker](media/arucoMarker/6x6_1000-13.png)
+- **ArUco Markers:** Used for visual positioning and tracking. ![ArUco Marker](6x6_1000-13.png)
 - **Raspberry Pi 4:** Acts as the main processing unit. 
 - **Computer Vision (OpenCV):** Handles marker detection and pose estimation.
 - **DC Motors and Motor Controller:** Facilitate movement and precise navigation.
