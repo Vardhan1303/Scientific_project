@@ -128,7 +128,7 @@ To generate markers online:
 
 #### Image of aruco marker 6by6_100 id 13
 
-![ArUco Marker](media/arucoMarker/6x6_1000-13.png)
+![ArUco Marker](Scientific_project/media/arucoMarker/6x6_1000-13.png)
 
 #### Detection of ArUco Markers
 
