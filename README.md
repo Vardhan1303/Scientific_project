@@ -1,6 +1,6 @@
 # Platooning Autonomous Following Robot
 
-![Platooning Autonomous Following Robot](../media/platooning.jpeg)
+![Platooning Autonomous Following Robot](/media/platooning.jpeg)
 
 **Authors:** Vardhan Mistry, Jai Doshi  
 **Supervisor:** Prof. Dr. Stefan Elser
