@@ -14,10 +14,10 @@ The **Platooning Autonomous Following Robot** is designed to autonomously follow
 ---
 
 ## Key Technologies and Components
-- **ArUco Markers:** Used for visual positioning and tracking. ![ArUco Marker](media/arucoMarker/aruco_example.jpg)
-- **Raspberry Pi 4:** Acts as the main processing unit. ![Raspberry Pi 4](media/robot/raspberry_pi.jpg)
+- **ArUco Markers:** Used for visual positioning and tracking. ![ArUco Marker](media/arucoMarker/6x6_1000-13.png)
+- **Raspberry Pi 4:** Acts as the main processing unit. 
 - **Computer Vision (OpenCV):** Handles marker detection and pose estimation.
-- **DC Motors and Motor Controller:** Facilitate movement and precise navigation. ![DC Motor](media/robot/motors.jpg)
+- **DC Motors and Motor Controller:** Facilitate movement and precise navigation.
 - **Kalman Filter:** Reduces noise for improved movement accuracy.
 
 ---
@@ -34,7 +34,7 @@ The robot integrates the following components:
 - **Operating System:** Raspbian GNU/Linux 11 (Bullseye).
 - **Libraries:** OpenCV, GPIO Zero, and Python 3.
 - **Algorithms:**
-  - Camera calibration to correct lens distortions. ![Checkerboard Calibration](media/cameraCalibration/checkerboard.jpg)
+  - Camera calibration to correct lens distortions. 
   - Marker detection and pose estimation using OpenCV.
   - Control algorithms for autonomous navigation.
 
@@ -47,35 +47,57 @@ The robot integrates the following components:
 
 For calibration, we used a 100 mm by 100 mm Checkerboard pattern with squares of size 10 mm by 10 mm. The chessboard pattern is ideal for calibration because it provides well-defined corners that can be easily detected and used to compute the camera parameters.
 
-Checkerboard Details
+#### Checkerboard Details
 
-Checkerboard Size: 100 mm by 100 mm.
-Square Size: 10 mm by 10 mm.
-Number of Inner Corners: The chessboard has 9 inner corners along each dimension (9 x 9).
+- Checkerboard Size: 100 mm by 100 mm.
+-Square Size: 10 mm by 10 mm.
+- Number of Inner Corners: The chessboard has 9 inner corners along each dimension (9 x 9).
+
 Checkerboard Image:
+
+![Checkerboard Calibration](media/cameraCalibration/checkerboard.png)
 
 #### Image Acquisition
 
 To perform a robust calibration, images of the Checkerboard were captured from different angles and distances. By using images taken from various viewpoints, the calibration process becomes more robust against potential errors caused by noise, lighting variations, or lens distortions.
 
 Images of distorted images (4 images side by side)
+
+<p float="left">
+  <img src="media/captured_images/image1.jpg" width="25%" />
+  <img src="media/captured_images/image1.jpg" width="25%" />
+  <img src="media/captured_images/image1.jpg" width="25%" />
+  <img src="media/captured_images/image1.jpg" width="25%" />
+</p>
+
+
 images of undistorted images (4 images side by side)
+
+<p float="left">
+  <img src="media/undistorted_images/image1.jpg" width="25%" />
+  <img src="media/undistorted_images/image1.jpg" width="25%" />
+  <img src="media/undistorted_images/image1.jpg" width="25%" />
+  <img src="media/undistorted_images/image1.jpg" width="25%" />
+</p>
 
 #### Camera Calibration Process
 
 The camera calibration process was implemented using algorithms developed with guidance from the official OpenCV documentation [13] and supplemented by a comprehensive YouTube tutorial [14].
 
-Intrinsic Matrix (K):
+- Intrinsic Matrix (K):
 
 Extrinsic Parameters (R, T): The extrinsic parameters describe the rotation (R) and translation (T) of the camera relative to the world coordinate system. These parameters are crucial for mapping 3D world coordinates to 2D image coordinates:
 
 [R∣T]= 
 ​
-Distortion Coefficients
-The lens of the camera introduces distortions in the captured images, such as radial and tangential distortion. These distortions are corrected by applying the following distortion coefficients:
+- Distortion Coefficients
+
+The lens of the camera introduces distortions in the captured images, such as radial and tangential distortion. These distortions are corrected by applying the following distortion 
+coefficients:
 
 Radial Distortion (k1, k2, k3): Causes straight lines to appear curved.
 Tangential Distortion (p1, p2): Results from the misalignment of the lens with the image sensor.
+
 Here are the distortion coefficients obtained during calibration:
 
 2. **Marker Detection:** Employs OpenCV’s ArUco library to identify and track markers.
@@ -86,40 +108,47 @@ Here are the distortion coefficients obtained during calibration:
 
 ArUco markers can be generated using the OpenCV library in Python.
 
-aruco.getPredefinedDictionary(aruco.DICT_6X6_50) selects the 6x6 marker dictionary.
-marker_id = 13 specifies the marker ID.
-marker_size = 500 sets the size of the marker to 500 pixels.
-The aruco.generateImageMarker() method generates the marker, and cv2.imshow() displays it.
+- aruco.getPredefinedDictionary(aruco.DICT_6X6_50) selects the 6x6 marker dictionary.
+- marker_id = 13 specifies the marker ID.
+- marker_size = 500 sets the size of the marker to 500 pixels.
+- The aruco.generateImageMarker() method generates the marker, and cv2.imshow() displays it.
+
 This method is ideal for generating and displaying multiple markers without the need to save them to files.
 
 ##### Generating ArUco Markers Online
+
 ArUco markers can also be generated online without writing code. The University of Oxford provides an online tool that simplifies the process.
 
 To generate markers online:
 
-Visit the ArUco Generator.
-Select the marker dictionary and ID.
-Set the marker and border sizes.
-Click "Generate" to create the marker, then download the image.
+- Visit the ArUco Generator.
+- Select the marker dictionary and ID.
+- Set the marker and border sizes.
+- Click "Generate" to create the marker, then download the image.
 
-image of aruco marker 6by6_100 id 13
+#### Image of aruco marker 6by6_100 id 13
+
+![ArUco Marker](media/arucoMarker/6x6_1000-13.png)
 
 #### Detection of ArUco Markers
 
-Marker Detection and Identification
+- Marker Detection and Identification
+
 The detection and identification of ArUco markers in real-time can be performed using the OpenCV library on a Raspberry Pi 4. 
 
 Explanation:
 
-The camera calibration parameters (camera_matrix and dist_coeffs) are used to correct lens distortion and ensure accurate detection.
-The cv2.aruco.detectMarkers() function detects ArUco markers in each frame.
-The cv2.aruco.drawDetectedMarkers() method highlights the detected markers in the frame.
-The real-time video feed is displayed using cv2.imshow().
+- The camera calibration parameters (camera_matrix and dist_coeffs) are used to correct lens distortion and ensure accurate detection.
+- The cv2.aruco.detectMarkers() function detects ArUco markers in each frame.
+- The cv2.aruco.drawDetectedMarkers() method highlights the detected markers in the frame.
+- The real-time video feed is displayed using cv2.imshow().
 
 #### Camera Calibration Parameters
+
 To accurately estimate the pose of detected ArUco markers, the intrinsic camera parameters must be known. These parameters include the camera matrix and distortion coefficients, which were obtained during the camera calibration process.
 
 #### Estimating the Pose of Detected Markers
+
 Once the markers are detected in the video frame, their pose (position and orientation) relative to the camera can be estimated using the cv2.solvePnP() function. This function computes the 3D position and orientation of the marker based on the 2D image coordinates of its corners.
 
 Explanation:
@@ -131,20 +160,27 @@ here are detecting of aruco marker visuals
 
 3 images side by side.
 
+<p float="left">
+  <img src="media/arucoMarkerDetection/frame1.png" width="33%" />
+  <img src="media/arucoMarkerDetection/frame2.png" width="33%" />
+  <img src="media/arucoMarkerDetection/frame3.png" width="33%" />
+</p>
+
 3. **Distance Estimation:** Calculates the distance of markers using pose estimation.
 
 #### Overview
 Depth estimation is the process of determining the distance between the camera and objects within a scene. When using ArUco markers, depth estimation enables us to calculate how far a detected marker is from the camera. The depth, or Z-component, can be directly inferred from the translation vector (tvec) obtained during pose estimation. This distance is crucial in applications such as robotics, augmented reality, and navigation systems
 
-Calculate the Distance for a Single ArUco Marker
+#### Calculate the Distance for a Single ArUco Marker
+
 The following steps outline how to calculate the distance of a single ArUco marker:
 
-Marker Detection: The algorithm detects the ArUco marker using OpenCV’s detectMarkers function [15], identifying the marker’s corners and ID.
-Pose Estimation: After detection, the pose of the marker is estimated using estimatePoseSingleMarkers [15], which provides the rotation vector (rvec) and translation vector (tvec).
-Translation Vector (tvec): The translation vector has three components: tx, ty, and tz, representing the marker's position relative to the camera:
-tx: Horizontal distance (left/right) from the camera’s optical axis.
-ty: Vertical distance (up/down) from the camera’s optical axis.
-tz: Depth or distance from the camera (forward/backward).
+- Marker Detection: The algorithm detects the ArUco marker using OpenCV’s detectMarkers function [15], identifying the marker’s corners and ID.
+- Pose Estimation: After detection, the pose of the marker is estimated using estimatePoseSingleMarkers [15], which provides the rotation vector (rvec) and translation vector (tvec).
+- Translation Vector (tvec): The translation vector has three components: tx, ty, and tz, representing the marker's position relative to the camera:
+   tx: Horizontal distance (left/right) from the camera’s optical axis.
+   ty: Vertical distance (up/down) from the camera’s optical axis.
+   tz: Depth or distance from the camera (forward/backward).
 
 def calculate_distance(tvec):
     distance_meters = tvec[0][0][2]
@@ -152,13 +188,16 @@ def calculate_distance(tvec):
     return distance_cm
 
 
-Distance Calculation: The Z-component of the translation vector (tz) represents the depth from the camera to the marker. To convert this distance from meters to centimeters:
+- Distance Calculation: The Z-component of the translation vector (tz) represents the depth from the camera to the marker. To convert this distance from meters to centimeters:
+
 Distance (cm) = tz × 100
 
-Calculate the Distance for Multiple ArUco Markers
+#### Calculate the Distance for Multiple ArUco Markers
+
 In this project, three ArUco markers are placed on the rear of the leading robot to ensure continuous detection within the camera’s field of view (FOV), even during turns. The algorithm calculates the distance and centroid if one, two, or three markers are detected.
 
-6.4.1 Marker Detection and Centroid Calculation
+#### Marker Detection and Centroid Calculation
+
 The script detects ArUco markers and filters for those with a specific ID (ID 13 in this case). For each valid marker, the center is calculated by averaging the x and y coordinates of two opposite corners. The centroid is determined by averaging the centers of all valid markers.
 
 The following images show the distance from the camera’s center to one, two, and three ArUco markers.
@@ -168,6 +207,12 @@ The following images show the distance from the camera’s center to one, two, a
 (c) Distance calculation for three ArUco markers.
 
 3 images side by side showing distance of one, two and 3 aruco markers 
+
+<p float="left">
+  <img src="media/depthEstimation/three_aruco/one_ArUco Marker Distance Measurement1.png" width="33%" />
+  <img src="media/depthEstimation/three_aruco/two_ArUco Marker Distance Measurement2.png" width="33%" />
+  <img src="media/depthEstimation/three_aruco/three_ArUco Marker Distance Measurement3.png" width="33%" />
+</p>
 
 valuation of Distance Calculation Algorithm
 6.6 Evaluation Metrics
