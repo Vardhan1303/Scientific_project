@@ -42,6 +42,22 @@ The robot integrates the following components:
 
 ## Key Features
 1. **Camera Calibration:** Uses a checkerboard pattern to estimate intrinsic and extrinsic camera parameters, ensuring precise image correction.
+
+#### Calibration Setup
+
+For calibration, we used a 100 mm by 100 mm Checkerboard pattern with squares of size 10 mm by 10 mm. The chessboard pattern is ideal for calibration because it provides well-defined corners that can be easily detected and used to compute the camera parameters.
+
+Checkerboard Details
+
+Checkerboard Size: 100 mm by 100 mm.
+Square Size: 10 mm by 10 mm.
+Number of Inner Corners: The chessboard has 9 inner corners along each dimension (9 x 9).
+Checkerboard Image:
+
+#### Image Acquisition
+
+To perform a robust calibration, images of the Checkerboard were captured from different angles and distances. By using images taken from various viewpoints, the calibration process becomes more robust against potential errors caused by noise, lighting variations, or lens distortions
+
 2. **Marker Detection:** Employs OpenCV’s ArUco library to identify and track markers.
 3. **Distance Estimation:** Calculates the distance of markers using pose estimation.
 4. **Movement Control:** Adjusts motor speeds dynamically to maintain alignment and distance.
