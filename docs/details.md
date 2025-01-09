@@ -330,9 +330,11 @@ Once the marker is detected again, the robot resumes its normal operation, using
 - **Accuracy:** Achieved an average error of less than 2 cm in distance estimation.
 - **Reliability:** Performed consistently across different lighting and surface conditions.
 - **Testing Video:** 
-<a href="https://github.com/Vardhan1303/Scientific_project/raw/refs/heads/main/media/testing.mp4" target="_blank">
-    <img src="https://github.com/Vardhan1303/Scientific_project/raw/refs/heads/main/media/platooning.jpeg" alt="Watch the video" />
-</a>
+<video controls width="600">
+    <source src="https://github.com/Vardhan1303/Scientific_project/raw/refs/heads/main/media/testing.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
 
 
 
