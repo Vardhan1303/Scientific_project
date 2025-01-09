@@ -56,7 +56,7 @@ For calibration, we used a 100 mm by 100 mm Checkerboard pattern with squares of
 
 Checkerboard Image:
 
-<img src="../media/cameraCalibration/checkboard.png" width="800" />
+<img src="../media/cameraCalibration/checkboard.png" width="600" />
 
 
 #### Image Acquisition
@@ -215,7 +215,7 @@ To assess the accuracy of the distance calculation algorithm, the following metr
 - Root Mean Squared Error (RMSE): Gives more weight to larger errors.
 - Error Percentage: Shows the relative error for each distance.
 
-<img src="../media/depthEstimation/distance_comparison_plot.png" width="800" />
+<img src="../media/depthEstimation/distance_comparison_plot.png" width="600" />
 
 - Graphical Analysis
 
