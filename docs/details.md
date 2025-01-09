@@ -102,6 +102,8 @@ Select the marker dictionary and ID.
 Set the marker and border sizes.
 Click "Generate" to create the marker, then download the image.
 
+image of aruco marker 6by6_100 id 13
+
 #### Detection of ArUco Markers
 
 Marker Detection and Identification
@@ -130,6 +132,61 @@ here are detecting of aruco marker visuals
 3 images side by side.
 
 3. **Distance Estimation:** Calculates the distance of markers using pose estimation.
+
+#### Overview
+Depth estimation is the process of determining the distance between the camera and objects within a scene. When using ArUco markers, depth estimation enables us to calculate how far a detected marker is from the camera. The depth, or Z-component, can be directly inferred from the translation vector (tvec) obtained during pose estimation. This distance is crucial in applications such as robotics, augmented reality, and navigation systems
+
+Calculate the Distance for a Single ArUco Marker
+The following steps outline how to calculate the distance of a single ArUco marker:
+
+Marker Detection: The algorithm detects the ArUco marker using OpenCV’s detectMarkers function [15], identifying the marker’s corners and ID.
+Pose Estimation: After detection, the pose of the marker is estimated using estimatePoseSingleMarkers [15], which provides the rotation vector (rvec) and translation vector (tvec).
+Translation Vector (tvec): The translation vector has three components: tx, ty, and tz, representing the marker's position relative to the camera:
+tx: Horizontal distance (left/right) from the camera’s optical axis.
+ty: Vertical distance (up/down) from the camera’s optical axis.
+tz: Depth or distance from the camera (forward/backward).
+
+def calculate_distance(tvec):
+    distance_meters = tvec[0][0][2]
+    distance_cm = distance_meters * 100
+    return distance_cm
+
+
+Distance Calculation: The Z-component of the translation vector (tz) represents the depth from the camera to the marker. To convert this distance from meters to centimeters:
+Distance (cm) = tz × 100
+
+Calculate the Distance for Multiple ArUco Markers
+In this project, three ArUco markers are placed on the rear of the leading robot to ensure continuous detection within the camera’s field of view (FOV), even during turns. The algorithm calculates the distance and centroid if one, two, or three markers are detected.
+
+6.4.1 Marker Detection and Centroid Calculation
+The script detects ArUco markers and filters for those with a specific ID (ID 13 in this case). For each valid marker, the center is calculated by averaging the x and y coordinates of two opposite corners. The centroid is determined by averaging the centers of all valid markers.
+
+The following images show the distance from the camera’s center to one, two, and three ArUco markers.
+
+(a) Distance calculation for a single ArUco marker.
+(b) Distance calculation for two ArUco markers.
+(c) Distance calculation for three ArUco markers.
+
+3 images side by side showing distance of one, two and 3 aruco markers 
+
+valuation of Distance Calculation Algorithm
+6.6 Evaluation Metrics
+To assess the accuracy of the distance calculation algorithm, the following metrics were used:
+
+Mean Absolute Error (MAE): Measures the average magnitude of errors.
+Root Mean Squared Error (RMSE): Gives more weight to larger errors.
+Error Percentage: Shows the relative error for each distance.
+
+image of plot :
+
+Graphical Analysis
+Figure shows a plot of actual distances versus calculated distances.
+
+Analysis and Discussion
+The results indicate that the algorithm shows an average error of less than 2 cm, suggesting high accuracy. The error percentage remains consistently low across different distances, and the algorithm performs well with minimal errors, which are within acceptable limits for real-world applications.
+
+
+
 4. **Movement Control:** Adjusts motor speeds dynamically to maintain alignment and distance.
 5. **Real-Time Processing:** Ensures smooth operation in varying environments.
 
