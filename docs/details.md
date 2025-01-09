@@ -133,7 +133,9 @@ Implements **Kalman Filter** for refined measurements. Handles marker loss by in
 - **Testing Scenarios:** Conducted under diverse conditions.
 - **Accuracy:** Achieved an average error of less than 2 cm in distance estimation.
 - **Reliability:** Consistent performance across different lighting and surface conditions.
-- **Testing Video:** [GitHub Link](https://github.com/user-attachments/assets/9fe479ac-1420-4cd1-aefd-35c88cfe8cb4)
+- **Testing Video:**
+
+https://github.com/user-attachments/assets/9fe479ac-1420-4cd1-aefd-35c88cfe8cb4
 
 ---
 
