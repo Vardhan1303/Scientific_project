@@ -56,7 +56,8 @@ For calibration, we used a 100 mm by 100 mm Checkerboard pattern with squares of
 
 Checkerboard Image:
 
-![Checkerboard Calibration](../media/cameraCalibration/checkboard.png | width=100)
+<img src="../media/cameraCalibration/checkboard.png" width="200" />
+
 
 #### Image Acquisition
 
