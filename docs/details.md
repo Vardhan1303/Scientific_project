@@ -64,20 +64,20 @@ To perform a robust calibration, images of the Checkerboard were captured from d
 Images of distorted images (4 images side by side)
 
 <p float="left">
-  <img src="../media/camaeraCalibration/captured_images/images1.jpg" width="25%" />
-  <img src="../media/camaeraCalibration/captured_images/images2.jpg" width="25%" />
-  <img src="../media/camaeraCalibration/captured_images/images3.jpg" width="25%" />
-  <img src="../media/camaeraCalibration/captured_images/images4.jpg" width="25%" />
+  <img src="../media/cameraCalibration/captured_images/images1.jpg" width="25%" />
+  <img src="../media/cameraCalibration/captured_images/images2.jpg" width="25%" />
+  <img src="../media/cameraCalibration/captured_images/images3.jpg" width="25%" />
+  <img src="../media/cameraCalibration/captured_images/images4.jpg" width="25%" />
 </p>
 
 
 images of undistorted images (4 images side by side)
 
 <p float="left">
-  <img src="../media/camaeraCalibration/undistorted_images/1.png" width="25%" />
-  <img src="../media/camaeraCalibration/undistorted_images/2.png" width="25%" />
-  <img src="../media/camaeraCalibration/undistorted_images/3.png" width="25%" />
-  <img src="../media/camaeraCalibration/undistorted_images/4.png" width="25%" />
+  <img src="../media/cameraCalibration/undistorted_images/1.png" width="25%" />
+  <img src="../media/cameraCalibration/undistorted_images/2.png" width="25%" />
+  <img src="../media/cameraCalibration/undistorted_images/3.png" width="25%" />
+  <img src="../media/cameraCalibration/undistorted_images/4.png" width="25%" />
 </p>
 
 #### Camera Calibration Process
