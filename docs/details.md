@@ -64,20 +64,20 @@ To perform a robust calibration, images of the Checkerboard were captured from d
 Images of distorted images (4 images side by side)
 
 <p float="left">
-  <img src="../media/captured_images/images1.jpg" width="25%" />
-  <img src="../media/captured_images/images2.jpg" width="25%" />
-  <img src="../media/captured_images/images3.jpg" width="25%" />
-  <img src="../media/captured_images/images4.jpg" width="25%" />
+  <img src="../media/camaeraCalibration/captured_images/images1.jpg" width="25%" />
+  <img src="../media/camaeraCalibration/captured_images/images2.jpg" width="25%" />
+  <img src="../media/camaeraCalibration/captured_images/images3.jpg" width="25%" />
+  <img src="../media/camaeraCalibration/captured_images/images4.jpg" width="25%" />
 </p>
 
 
 images of undistorted images (4 images side by side)
 
 <p float="left">
-  <img src="../media/undistorted_images/1.png" width="25%" />
-  <img src="../media/undistorted_images/2.png" width="25%" />
-  <img src="../media/undistorted_images/3.png" width="25%" />
-  <img src="../media/undistorted_images/4.png" width="25%" />
+  <img src="../media/camaeraCalibration/undistorted_images/1.png" width="25%" />
+  <img src="../media/camaeraCalibration/undistorted_images/2.png" width="25%" />
+  <img src="../media/camaeraCalibration/undistorted_images/3.png" width="25%" />
+  <img src="../media/camaeraCalibration/undistorted_images/4.png" width="25%" />
 </p>
 
 #### Camera Calibration Process
@@ -226,7 +226,7 @@ To assess the accuracy of the distance calculation algorithm, the following metr
 
 image of plot :
 
-![Distance_evaluation](../media/depthEstimatio/distance_comparison_plot.png)
+![Distance_evaluation](../media/depthEstimation/distance_comparison_plot.png)
 
 - Graphical Analysis
 
@@ -276,7 +276,7 @@ The refined distance and lateral deviation estimates provided by the Kalman Filt
 
 #### Handling Loss of Marker Visibility
 
-To ensure continuous and accurate tracking, the algorithm includes a strategy for handling situations where the ArUco marker temporarily goes out of the camera’s field of view. This approach ensures that the robot maintains its direction and is prepared to continue tracking once the marker reappears [20].
+To ensure continuous and accurate tracking, the algorithm includes a strategy for handling situations where the ArUco marker temporarily goes out of the camera’s field of view. This approach ensures that the robot maintains its direction and is prepared to continue tracking once the marker reappears.
 
 - 
 Initialization of Variables
@@ -329,7 +329,7 @@ Once the marker is detected again, the robot resumes its normal operation, using
 - **Testing Scenarios:** Conducted under diverse conditions, demonstrating the system’s robustness.
 - **Accuracy:** Achieved an average error of less than 2 cm in distance estimation.
 - **Reliability:** Performed consistently across different lighting and surface conditions.
-- **Testing Video:** [Watch Testing Video](../media/final_testing_video.mp4)
+- **Testing Video:** [Watch Testing Video](../media/final testing video.mp4)
 
 ---
 
