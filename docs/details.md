@@ -14,7 +14,7 @@ The **Platooning Autonomous Following Robot** is designed to autonomously follow
 ---
 
 ## Key Technologies and Components
-- **ArUco Markers:** Used for visual positioning and tracking. ![ArUco Marker](media/arucoMarker/6x6_1000-13.png)
+- **ArUco Markers:** Used for visual positioning and tracking. ![ArUco Marker](../media/arucoMarker/6x6_1000-13.png)
 - **Raspberry Pi 4:** Acts as the main processing unit. 
 - **Computer Vision (OpenCV):** Handles marker detection and pose estimation.
 - **DC Motors and Motor Controller:** Facilitate movement and precise navigation.
@@ -55,7 +55,7 @@ For calibration, we used a 100 mm by 100 mm Checkerboard pattern with squares of
 
 Checkerboard Image:
 
-![Checkerboard Calibration](media/cameraCalibration/checkerboard.png)
+![Checkerboard Calibration](../media/cameraCalibration/checkerboard.png)
 
 #### Image Acquisition
 
@@ -64,10 +64,10 @@ To perform a robust calibration, images of the Checkerboard were captured from d
 Images of distorted images (4 images side by side)
 
 <p float="left">
-  <img src="media/captured_images/image1.jpg" width="25%" />
-  <img src="media/captured_images/image1.jpg" width="25%" />
-  <img src="media/captured_images/image1.jpg" width="25%" />
-  <img src="media/captured_images/image1.jpg" width="25%" />
+  <img src="../media/captured_images/image1.jpg" width="25%" />
+  <img src="../media/captured_images/image1.jpg" width="25%" />
+  <img src="../media/captured_images/image1.jpg" width="25%" />
+  <img src="../media/captured_images/image1.jpg" width="25%" />
 </p>
 
 
