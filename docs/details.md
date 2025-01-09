@@ -14,7 +14,7 @@ The **Platooning Autonomous Following Robot** is designed to autonomously follow
 ---
 
 ## Key Technologies and Components
-- **ArUco Markers:** Used for visual positioning and tracking. ![ArUco Marker](../media/arucoMarker/6x6_1000-13.png)
+- **ArUco Markers:** Used for visual positioning and tracking.
 - **Raspberry Pi 4:** Acts as the main processing unit. 
 - **Computer Vision (OpenCV):** Handles marker detection and pose estimation.
 - **DC Motors and Motor Controller:** Facilitate movement and precise navigation.
@@ -41,6 +41,7 @@ The robot integrates the following components:
 ---
 
 ## Key Features
+
 1. **Camera Calibration:** Uses a checkerboard pattern to estimate intrinsic and extrinsic camera parameters, ensuring precise image correction.
 
 #### Calibration Setup
@@ -55,50 +56,43 @@ For calibration, we used a 100 mm by 100 mm Checkerboard pattern with squares of
 
 Checkerboard Image:
 
-![Checkerboard Calibration](../media/cameraCalibration/checkboard.png)
+![Checkerboard Calibration](../media/cameraCalibration/checkboard.png | width=100)
 
 #### Image Acquisition
 
 To perform a robust calibration, images of the Checkerboard were captured from different angles and distances. By using images taken from various viewpoints, the calibration process becomes more robust against potential errors caused by noise, lighting variations, or lens distortions.
 
-Images of distorted images (4 images side by side)
+- Sample of Distorted images
 
 <p float="left">
-  <img src="../media/cameraCalibration/captured_images/images1.jpg" width="25%" />
-  <img src="../media/cameraCalibration/captured_images/images2.jpg" width="25%" />
-  <img src="../media/cameraCalibration/captured_images/images3.jpg" width="25%" />
-  <img src="../media/cameraCalibration/captured_images/images4.jpg" width="25%" />
+  <img src="../media/cameraCalibration/captured_images/images1.jpg" width="20%" />
+  <img src="../media/cameraCalibration/captured_images/images2.jpg" width="20%" />
+  <img src="../media/cameraCalibration/captured_images/images3.jpg" width="20%" />
+  <img src="../media/cameraCalibration/captured_images/images4.jpg" width="20%" />
 </p>
 
 
-images of undistorted images (4 images side by side)
+- Sample of Undistorted images
 
 <p float="left">
-  <img src="../media/cameraCalibration/undistorted_images/1.png" width="25%" />
-  <img src="../media/cameraCalibration/undistorted_images/2.png" width="25%" />
-  <img src="../media/cameraCalibration/undistorted_images/3.png" width="25%" />
-  <img src="../media/cameraCalibration/undistorted_images/4.png" width="25%" />
+  <img src="../media/cameraCalibration/undistorted_images/1.png" width="20%" />
+  <img src="../media/cameraCalibration/undistorted_images/2.png" width="20%" />
+  <img src="../media/cameraCalibration/undistorted_images/3.png" width="20%" />
+  <img src="../media/cameraCalibration/undistorted_images/4.png" width="20%" />
 </p>
 
 #### Camera Calibration Process
 
 The camera calibration process was implemented using algorithms developed with guidance from the official OpenCV documentation and supplemented by a comprehensive YouTube tutorial.
 
-- Intrinsic Matrix (K):
-
-Extrinsic Parameters (R, T): The extrinsic parameters describe the rotation (R) and translation (T) of the camera relative to the world coordinate system. These parameters are crucial for mapping 3D world coordinates to 2D image coordinates:
-
-[R∣T]= 
+- Intrinsic Matrix (K) and Extrinsic Parameters (R, T)
 ​
 - Distortion Coefficients
 
-The lens of the camera introduces distortions in the captured images, such as radial and tangential distortion. These distortions are corrected by applying the following distortion 
-coefficients:
+The lens of the camera introduces distortions in the captured images, such as radial and tangential distortion.
 
-Radial Distortion (k1, k2, k3): Causes straight lines to appear curved.
-Tangential Distortion (p1, p2): Results from the misalignment of the lens with the image sensor.
-
-Here are the distortion coefficients obtained during calibration:
+- Radial Distortion (k1, k2, k3): Causes straight lines to appear curved.
+- Tangential Distortion (p1, p2): Results from the misalignment of the lens with the image sensor.
 
 2. **Marker Detection:** Employs OpenCV’s ArUco library to identify and track markers.
 
@@ -132,8 +126,6 @@ To generate markers online:
 
 #### Detection of ArUco Markers
 
-- Marker Detection and Identification
-
 The detection and identification of ArUco markers in real-time can be performed using the OpenCV library on a Raspberry Pi 4. 
 
 Explanation:
@@ -156,9 +148,7 @@ Explanation:
 marker_points_3d represents the 3D coordinates of the marker's corners, assuming the marker is flat and the camera is aligned with its plane.
 cv2.solvePnP() calculates the rotation vector (rvecs) and translation vector (tvecs), which describe the marker's position and orientation relative to the camera.
 
-here are detecting of aruco marker visuals
-
-3 images side by side.
+## Visuals of aruco marker detection
 
 <p float="left">
   <img src="../media/arucoMarkerDetection/frame1.png" width="33%" />
@@ -175,8 +165,8 @@ Depth estimation is the process of determining the distance between the camera a
 
 The following steps outline how to calculate the distance of a single ArUco marker:
 
-- Marker Detection: The algorithm detects the ArUco marker using OpenCV’s detectMarkers function [15], identifying the marker’s corners and ID.
-- Pose Estimation: After detection, the pose of the marker is estimated using estimatePoseSingleMarkers [15], which provides the rotation vector (rvec) and translation vector (tvec).
+- Marker Detection: The algorithm detects the ArUco marker using OpenCV’s detectMarkers function, identifying the marker’s corners and ID.
+- Pose Estimation: After detection, the pose of the marker is estimated using estimatePoseSingleMarkers, which provides the rotation vector (rvec) and translation vector (tvec).
 - Translation Vector (tvec): The translation vector has three components: tx, ty, and tz, representing the marker's position relative to the camera:
    tx: Horizontal distance (left/right) from the camera’s optical axis.
    ty: Vertical distance (up/down) from the camera’s optical axis.
@@ -206,7 +196,7 @@ The following images show the distance from the camera’s center to one, two, a
 (b) Distance calculation for two ArUco markers.
 (c) Distance calculation for three ArUco markers.
 
-3 images side by side showing distance of one, two and 3 aruco markers:
+## Visuals of distance estimation of one, two and 3 aruco markers respectively
 
 <p float="left">
   <img src="../media/depthEstimation/three_aruco/one_ArUco Marker Distance Measurement1.png" width="33%" />
@@ -223,8 +213,6 @@ To assess the accuracy of the distance calculation algorithm, the following metr
 - Mean Absolute Error (MAE): Measures the average magnitude of errors.
 - Root Mean Squared Error (RMSE): Gives more weight to larger errors.
 - Error Percentage: Shows the relative error for each distance.
-
-image of plot :
 
 ![Distance_evaluation](../media/depthEstimation/distance_comparison_plot.png)
 
@@ -278,17 +266,17 @@ The refined distance and lateral deviation estimates provided by the Kalman Filt
 
 To ensure continuous and accurate tracking, the algorithm includes a strategy for handling situations where the ArUco marker temporarily goes out of the camera’s field of view. This approach ensures that the robot maintains its direction and is prepared to continue tracking once the marker reappears.
 
-- 
-Initialization of Variables
+- Initialization of Variables
 The algorithm initializes several variables to manage the behavior when the marker is lost:
 
-python
-# Initialize variables for lost marker handling
+``` Python code
+#### Initialize variables for lost marker handling
 marker_lost = False
 last_lateral_deviation = 0
 marker_lost_start_time = 0
 rotation_duration = 0.5  # Approximate duration to rotate 20 degrees (adjust based on your robot)
 rotation_completed = False
+```
 
 - marker_lost: A boolean flag indicating whether the marker is currently lost.
 - last_lateral_deviation: Stores the last known lateral deviation to determine the direction of rotation when the marker is lost.
@@ -303,7 +291,7 @@ When the marker is lost, the robot uses the last known lateral deviation to dete
 
 This rotation is executed for a short duration, calculated based on the robot’s movement characteristics. The robot then stops and waits for the marker to reappear.
 
-Code Example for Rotation Control
+``` Python code
 # Perform a slight rotation based on the last known lateral deviation
 if last_lateral_deviation > 0:
     logging.info("Slightly rotating to the right.")
@@ -315,6 +303,7 @@ elif last_lateral_deviation < 0:
     right_motor_forward(0.5)  # Increase speed on the right motor
 else:
     stop_motors()
+```
 
 - Timeout Mechanism
 
