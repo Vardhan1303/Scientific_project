@@ -38,7 +38,6 @@ Platooning_Autonomous_Following_Robot/
 │   ├── arucoMarkerDetection/          # Media of marker detection
 │   ├── cameraCalibration/             # Camera calibration process media
 │   ├── depthEstimation/               # Visual content related to depth estimation
-│   ├── final_testing_video            # Video of final testing phase
 │   ├── platooning                     # Photo of the two robots in platooning setup
 │   └── robot                          # Image of the robot used for experiments
 ├── tests/                             # Testing scripts for individual components
