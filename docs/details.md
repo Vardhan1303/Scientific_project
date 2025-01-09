@@ -26,9 +26,9 @@ The **Platooning Autonomous Following Robot** is designed to autonomously follow
 ### Hardware Setup
 The robot integrates the following components:
 - **Raspberry Pi 4:** Processes data from sensors and executes control algorithms.
-- **Camera Module:** Captures real-time visuals for marker detection. ![Camera Module](media/cameraCalibration/camera_module.jpg)
+- **Camera Module:** Captures real-time visuals for marker detection.
 - **DC Motors and Motor Shield:** Provides movement capabilities.
-- **Power Sources:** A power bank for Raspberry Pi and a dedicated battery for motors. ![Power Supply](media/robot/power_supply.jpg)
+- **Power Sources:** A power bank for Raspberry Pi and a dedicated battery for motors.
 
 ### Software Environment
 - **Operating System:** Raspbian GNU/Linux 11 (Bullseye).
