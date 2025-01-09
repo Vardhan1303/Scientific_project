@@ -1,11 +1,16 @@
 # Platooning Autonomous Following Robot
 
+**Authors:** Vardhan Vinodbhai Mistry, Jai Doshi  
+**Supervisor:** Prof. Dr. Stefan Elser
+
+---
+
 This repository contains the code and documentation for the **Platooning Autonomous Following Robot** project, developed as part of a scientific project at Ravensburg-Weingarten University. 
 
-## Project Overview
+## 🚀 Project Overview
 The objective of this project is to create a cost-effective, autonomous robot capable of following a lead vehicle in a platoon formation. Using computer vision and ArUco markers, the robot tracks the lead vehicle and maintains a safe distance without human intervention.
 
-## Key Features
+## 🌟 Key Features
 - **Technologies Used:**
   - Computer Vision (OpenCV) for object detection
   - Raspberry Pi 4 as the control unit
@@ -18,20 +23,47 @@ The objective of this project is to create a cost-effective, autonomous robot ca
   - Enable accurate detection and tracking using ArUco markers.
   - Ensure smooth and reliable robot movement in real-time.
 
-## Repository Structure
-- `src/`: Source code for robot control, marker detection, and motor navigation.
-- `docs/`: Project report and detailed documentation.
-- `media/`: Images and videos showcasing the project in action.
-- `tests/`: Scripts and data for testing individual components.
+## 📂 Repository Structure
+```
+Platooning_Autonomous_Following_Robot/
+├── src/
+│   ├── aruco_marker_detection/        # Code for detecting and processing ArUco markers
+│   ├── arucoMarker/                   # Subfolder related to ArUco marker definitions
+│   ├── cameraCalibration/             # Scripts for calibrating the camera
+│   ├── distance_calculation/          # Code for distance estimation
+│   └── main.py                        # Main algorithm that integrates all components
+├── docs/                              # Project report and detailed documentation
+├── media/                             # Images and videos showcasing the project
+│   ├── arucoMarker/                   # Images related to ArUco markers
+│   ├── arucoMarkerDetection/          # Media of marker detection
+│   ├── cameraCalibration/             # Camera calibration process media
+│   ├── depthEstimation/               # Visual content related to depth estimation
+│   ├── final_testing_video            # Video of final testing phase
+│   ├── platooning                     # Photo of the two robots in platooning setup
+│   └── robot                          # Image of the robot used for experiments
+├── tests/                             # Testing scripts for individual components
+│   ├── 00_test                        # Tests robot motors
+│   ├── 01_camera                      # Tests camera functionality
+│   ├── 02_lidar                       # Tests LiDAR sensor (if applicable)
+│   ├── 03_drive_circle                # Drives robot in circular movement
+│   ├── 04_all                         # Combines and tests all components
+│   └── 05_manual                      # Manual control of the robot with keyboard
+└── LICENSE                            # License file for project usage
+```
 
-## Setup Instructions
+## 🛠️ Setup Instructions
 1. Clone the repository:
    ```bash
    git clone https://github.com/<your-username>/Scientific_project.git
+   ```
 2. Follow the setup guide in the `docs/` folder to configure your Raspberry Pi and install necessary dependencies.
 
-## Contributors
-- **Vardhan Vinodbhai Mistry**  & **Jai Doshi**
+## 📜 License
+This project is protected under the **License Agreement**. No part of this project may be reproduced, distributed, or transmitted in any form or by any means without explicit permission from the authors. For permissions, please contact the authors.
 
-## Guided by
-- **Prof. Dr. Stefan Elser** 
+## 🤝 Contributors
+- **Vardhan Vinodbhai Mistry**  
+- **Jai Doshi**
+
+## 🧑‍🏫 Guided by
+- **Prof. Dr. Stefan Elser**
