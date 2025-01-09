@@ -1,6 +1,6 @@
 # Platooning Autonomous Following Robot
 
-**Authors:** Vardhan Vinodbhai Mistry, Jai Doshi  
+**Authors:** Vardhan Mistry, Jai Doshi  
 **Supervisor:** Prof. Dr. Stefan Elser
 
 ---
@@ -28,13 +28,13 @@ The objective of this project is to create a cost-effective, autonomous robot ca
 Platooning_Autonomous_Following_Robot/
 ├── src/
 │   ├── aruco_marker_detection/        # Code for detecting and processing ArUco markers
-│   ├── arucoMarker/                   # Subfolder related to ArUco marker definitions
+│   ├── arucoMarker/                   # Code to generate ArUco marker
 │   ├── cameraCalibration/             # Scripts for calibrating the camera
 │   ├── distance_calculation/          # Code for distance estimation
 │   └── main.py                        # Main algorithm that integrates all components
 ├── docs/                              # Project report and detailed documentation
 ├── media/                             # Images and videos showcasing the project
-│   ├── arucoMarker/                   # Images related to ArUco markers
+│   ├── arucoMarker/                   # Image of ArUco markers used in project
 │   ├── arucoMarkerDetection/          # Media of marker detection
 │   ├── cameraCalibration/             # Camera calibration process media
 │   ├── depthEstimation/               # Visual content related to depth estimation
