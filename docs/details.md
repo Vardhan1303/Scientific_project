@@ -206,7 +206,7 @@ The following images show the distance from the camera’s center to one, two, a
 (b) Distance calculation for two ArUco markers.
 (c) Distance calculation for three ArUco markers.
 
-3 images side by side showing distance of one, two and 3 aruco markers 
+3 images side by side showing distance of one, two and 3 aruco markers:
 
 <p float="left">
   <img src="media/depthEstimation/three_aruco/one_ArUco Marker Distance Measurement1.png" width="33%" />
@@ -214,29 +214,33 @@ The following images show the distance from the camera’s center to one, two, a
   <img src="media/depthEstimation/three_aruco/three_ArUco Marker Distance Measurement3.png" width="33%" />
 </p>
 
-valuation of Distance Calculation Algorithm
-6.6 Evaluation Metrics
+#### Evaluation of Distance Calculation Algorithm
+
+#### Evaluation Metrics
+
 To assess the accuracy of the distance calculation algorithm, the following metrics were used:
 
-Mean Absolute Error (MAE): Measures the average magnitude of errors.
-Root Mean Squared Error (RMSE): Gives more weight to larger errors.
-Error Percentage: Shows the relative error for each distance.
+- Mean Absolute Error (MAE): Measures the average magnitude of errors.
+- Root Mean Squared Error (RMSE): Gives more weight to larger errors.
+- Error Percentage: Shows the relative error for each distance.
 
 image of plot :
 
-Graphical Analysis
+![Distance_evaluation](media/depthEstimatio/distance_comparison_plot.png)
+
+- Graphical Analysis
+
 Figure shows a plot of actual distances versus calculated distances.
 
-Analysis and Discussion
+#### Analysis and Discussion
+
 The results indicate that the algorithm shows an average error of less than 2 cm, suggesting high accuracy. The error percentage remains consistently low across different distances, and the algorithm performs well with minimal errors, which are within acceptable limits for real-world applications.
-
-
 
 4. **Movement Control:** Adjusts motor speeds dynamically to maintain alignment and distance. and **Real-Time Processing:** Ensures smooth operation in varying environments.
 
-Motor Control
+#### Motor Control
 
-The algorithm adjusts motor speeds and direction based on the calculated distance and deviation to follow the leading robot. These values are optimized for a specific surface, but slight adjustments may be needed when the surface changes. Standardization has been attempted, but testing and fine-tuning are necessary for each surface to ensure optimal performance [22].
+The algorithm adjusts motor speeds and direction based on the calculated distance and deviation to follow the leading robot. These values are optimized for a specific surface, but slight adjustments may be needed when the surface changes. Standardization has been attempted, but testing and fine-tuning are necessary for each surface to ensure optimal performance.
 
 #### Motor Control Function
 
@@ -254,22 +258,28 @@ If the robot is within 5 cm of the desired distance, the robot stops using `stop
 
 Lateral deviations greater than 10 pixels trigger left or right corrections by adjusting motor speeds accordingly.
 
-Kalman Filter
-To enhance the accuracy of the robot’s movement and the measurements obtained from the camera sensor, a Kalman Filter is implemented. The Kalman Filter is an algorithm that processes a series of noisy observations over time to produce estimates that are more accurate than those based solely on individual measurements [23].
+#### Kalman Filter
 
-Purpose
+To enhance the accuracy of the robot’s movement and the measurements obtained from the camera sensor, a Kalman Filter is implemented. The Kalman Filter is an algorithm that processes a series of noisy observations over time to produce estimates that are more accurate than those based solely on individual measurements.
+
+- Purpose
+
 In our system, the Kalman Filter helps refine the distance and lateral deviation measurements obtained from the camera. By filtering out noise and inconsistencies in the visual data, the Kalman Filter provides a more accurate estimate of the robot’s position and orientation relative to the ArUco markers.
 
-Kalman Filter Function
+- Kalman Filter Function
+
 The function kalman_filter() takes the observed measurement, the predicted estimate, and their respective uncertainties as inputs. It then calculates the optimal estimate by weighting the prediction and the measurement according to their uncertainties.
 
-Integration with Motor Control
+- Integration with Motor Control
+
 The refined distance and lateral deviation estimates provided by the Kalman Filter are used as inputs to the control_robot() function. This integration allows the robot to make more precise movements and corrections, leading to smoother and more accurate following behavior.
 
-Handling Loss of Marker Visibility
+#### Handling Loss of Marker Visibility
+
 To ensure continuous and accurate tracking, the algorithm includes a strategy for handling situations where the ArUco marker temporarily goes out of the camera’s field of view. This approach ensures that the robot maintains its direction and is prepared to continue tracking once the marker reappears [20].
 
-nitialization of Variables
+- 
+Initialization of Variables
 The algorithm initializes several variables to manage the behavior when the marker is lost:
 
 python
@@ -280,16 +290,18 @@ marker_lost_start_time = 0
 rotation_duration = 0.5  # Approximate duration to rotate 20 degrees (adjust based on your robot)
 rotation_completed = False
 
-marker_lost: A boolean flag indicating whether the marker is currently lost.
-last_lateral_deviation: Stores the last known lateral deviation to determine the direction of rotation when the marker is lost.
-marker_lost_start_time: Records the time when the marker was first detected as lost, used to manage the rotation duration.
-rotation_duration: Specifies the time duration for which the robot should rotate to achieve approximately 20 degrees of rotation. This value may need to be adjusted based on the specific robot’s movement characteristics.
-rotation_completed: A boolean flag indicating whether the rotation has been completed.
+- marker_lost: A boolean flag indicating whether the marker is currently lost.
+- last_lateral_deviation: Stores the last known lateral deviation to determine the direction of rotation when the marker is lost.
+- marker_lost_start_time: Records the time when the marker was first detected as lost, used to manage the rotation duration.
+- rotation_duration: Specifies the time duration for which the robot should rotate to achieve approximately 20 degrees of rotation. This value may need to be adjusted based on the specific robot’s movement characteristics.
+- rotation_completed: A boolean flag indicating whether the rotation has been completed.
 Last Known Deviation
-When the marker is lost, the robot uses the last known lateral deviation to determine the direction in which it should rotate slightly. The robot executes a small, controlled rotation (approximately 20 degrees) in the direction of the last known deviation—right if the deviation was positive, left if it was negative [21].
 
-Rotation Control
-This rotation is executed for a short duration, calculated based on the robot’s movement characteristics. The robot then stops and waits for the marker to reappear [22].
+When the marker is lost, the robot uses the last known lateral deviation to determine the direction in which it should rotate slightly. The robot executes a small, controlled rotation (approximately 20 degrees) in the direction of the last known deviation—right if the deviation was positive, left if it was negative.
+
+#### Rotation Control
+
+This rotation is executed for a short duration, calculated based on the robot’s movement characteristics. The robot then stops and waits for the marker to reappear.
 
 Code Example for Rotation Control
 # Perform a slight rotation based on the last known lateral deviation
@@ -304,10 +316,12 @@ elif last_lateral_deviation < 0:
 else:
     stop_motors()
 
-Timeout Mechanism
-If the marker is not detected again within a pre-defined timeout period, the robot will stop its rotation and hold its position until the marker is detected again. This prevents unnecessary or continuous rotation [19].
+- Timeout Mechanism
 
-Seamless Transition Back to Normal Operation
+If the marker is not detected again within a pre-defined timeout period, the robot will stop its rotation and hold its position until the marker is detected again. This prevents unnecessary or continuous rotation.
+
+- Seamless Transition Back to Normal Operation
+
 Once the marker is detected again, the robot resumes its normal operation, using the Kalman Filter and motor control functions to follow the marker accurately. This handling mechanism ensures that the robot remains responsive and adaptive, even in situations where the marker is temporarily lost, improving the overall robustness of the tracking system
 ---
 
