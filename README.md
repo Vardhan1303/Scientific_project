@@ -68,3 +68,6 @@ This project is protected under the **License Agreement**. No part of this proje
 
 ## 🧑‍🏫 Guided by
 - **Prof. Dr. Stefan Elser**
+
+
+⭐ If you like this project, give it a star! 🌟
